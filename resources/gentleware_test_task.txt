@@ -1,0 +1,18 @@
+"Natalia Chekhova" <natalia.chekhova@gentleware.com.ua>
+
+Здравствуйте,
+спасибо за проявленный интерес к нашей компании.
+Мы заинтересовались Вами, и прежде, чем пригласить на интервью, хотим предложить Вам выполнить следующие задания.
+
+1. Реализовать классы Client, Account, Payment для описания бизнесс модели: клиенты, счета клиентов, платежи между клиентами
+2. Реализовать интерфейс
+public interface ClientService {
+          double getClientBalance(Client client, List<Account> accounts);
+          Client getClientWithMaxBalance(List<Account> accounts);
+}
+3. Предложить структуру таблиц базы данных для хранения информации о клиентах, счетах, платежах
+4. Написать запрос для выборки фамилий клиентов с минимальным и максимальным балансом.
+
+Для проверки знания английского языка, пожалуйста, ответьте письменно на следующий вопрос:
+
+Describe your career goals. What skills do you expect to gain from working in Gentleware (Rozdoum) and how will they contribute to your professional career?
