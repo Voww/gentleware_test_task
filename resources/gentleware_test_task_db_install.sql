@@ -1,4 +1,4 @@
-DROP SCHEMA IF EXISTS gentleware_test_task;
+-- DROP SCHEMA IF EXISTS gentleware_test_task;
 CREATE SCHEMA IF NOT EXISTS gentleware_test_task DEFAULT CHARACTER SET 'utf8' DEFAULT COLLATE 'utf8_general_ci';
 USE gentleware_test_task;
 
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS account (
   PRIMARY KEY (id)
 );
 
-DROP TABLE payment;
+-- DROP TABLE payment;
 CREATE TABLE IF NOT EXISTS payment (
   id SERIAL,
   date DATETIME DEFAULT NOW(),
