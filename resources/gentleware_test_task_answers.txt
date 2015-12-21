@@ -1,0 +1,90 @@
+Hello, Natalia!
+
+Below are listed my answers for your test tasks. Please, refer to a github repository if you want to look through source codes:
+https://github.com/Voww/gentleware_test_task
+
+Comgratulations, Volodymyr.
+
+"Natalia Chekhova" <natalia.chekhova@gentleware.com.ua>
+
+Здравствуйте,
+спасибо за проявленный интерес к нашей компании.
+Мы заинтересовались Вами, и прежде, чем пригласить на интервью, хотим предложить Вам выполнить следующие задания.
+
+1. Реализовать классы Client, Account, Payment для описания бизнесс модели: клиенты, счета клиентов, платежи между клиентами
+
+The required business-model is implemented as a JAVA console application. You can find a source code at a git
+repository https://github.com/Voww/gentleware_test_task
+To install a 'gentleware_test_task' database use an sql-script
+https://github.com/Voww/gentleware_test_task/blob/master/resources/gentleware_test_task_db_install.sql
+To run the application, please, start a class Main under JAVA console
+https://github.com/Voww/gentleware_test_task/blob/master/src/Main.java
+
+Enter any command below listed or type 'help' to view this message again or type 'exit' to resume:
+Client section: createClient, readClient, updateClient, deleteClient, readClientsList, getClientBalance, getClientWithMinBalance, getClientWithMaxBalance, getClientWithMinBalanceLastName, getClientWithMaxBalanceLastName;
+Account section: createAccount, readAccount, updateAccount, updateAccountAmount, deleteAccount, readAccountsList; readClientAccounts
+Payment section: createPayment, readPayment, readPaymentsList;
+
+2. Реализовать интерфейс
+public interface ClientService {
+          double getClientBalance(Client client, List<Account> accounts);
+          Client getClientWithMaxBalance(List<Account> accounts);
+}
+
+The interface is implemented at a class ClientToAccountRelationDAO:
+https://github.com/Voww/gentleware_test_task/blob/master/src/ua/com/gentleware/zaietsv/gentleware_dao/relation_dao/ClientToAccountRelationDAO.java
+method: public double getClientBalance(Client client, List<Account> accounts);
+method: public Client getClientWithMaxBalance(List<Account> accounts).
+
+The above methods are called at a class ClientManager
+https://github.com/Voww/gentleware_test_task/blob/master/src/ua/com/gentleware/zaietsv/manager/ClientManager.java
+method: public void manage() throws ManagerException;
+method: private double getClientBalance() throws ManagerException;
+method: private Client getClientWithMaxBalance();
+
+
+3. Предложить структуру таблиц базы данных для хранения информации о клиентах, счетах, платежах
+
+The required "gentleware_test_task" database model is implemented as an sql-script for the database installation.
+There are four tables: account, client, client_account, payment
+You can find the intallation script at a git:
+https://github.com/Voww/gentleware_test_task/blob/master/resources/gentleware_test_task_db_install.sql
+
+4. Написать запрос для выборки фамилий клиентов с минимальным и максимальным балансом.
+
+-- Selects last name of user with min balance
+SELECT last_name FROM (SELECT last_name, SUM(amount) balance FROM client JOIN client_account ON client.id = client_account.client_id JOIN account ON account.id = client_account.account_id group by client_id) t
+WHERE t.balance = (SELECT MIN(balance) FROM(SELECT SUM(amount) balance FROM client_account JOIN account ON account.id = client_account.account_id group by client_id) b);
+
+-- Selects last name of user with max balance
+SELECT last_name FROM (SELECT last_name, SUM(amount) balance FROM client JOIN client_account ON client.id = client_account.client_id JOIN account ON account.id = client_account.account_id group by client_id) t
+WHERE t.balance = (SELECT MAX(balance) FROM(SELECT SUM(amount) balance FROM client_account JOIN account ON account.id = client_account.account_id group by client_id) b);
+
+The required requests are implemented at a class ClientToAccountRelationDAO:
+https://github.com/Voww/gentleware_test_task/blob/master/src/ua/com/gentleware/zaietsv/gentleware_dao/relation_dao/ClientToAccountRelationDAO.java
+method: public List<String> getClientWithMaxBalanceLastName();
+method: public List<String> getClientWithMinBalanceLastName().
+
+The above methods are called at a class ClientManager
+https://github.com/Voww/gentleware_test_task/blob/master/src/ua/com/gentleware/zaietsv/manager/ClientManager.java
+method: public void manage() throws ManagerException;
+method: private List<String> getClientWithMinBalanceLastName();
+method: private List<String> getClientWithMaxBalanceLastName();
+
+Для проверки знания английского языка, пожалуйста, ответьте письменно на следующий вопрос:
+
+Describe your career goals. What skills do you expect to gain from working in Gentleware (Rozdoum) and how will they contribute to your professional career?
+
+I've learned JAVA at the ORACLE academy courses and now I want to find a practical application to my theoretical knowledge.
+During the last year I work as a PHP-programmer at a "Valpio-K" company. At the company I have got the practical
+experience of object-oriented approach and have learned common used technologies such as: SQL, Javascript, JQuery, AJAX,
+Json etc. At a free time I practice myself to write different JAVA programs based on courseworks and test tasks.
+It is essential to me to obtain a commercial experience in area of of JAVA programming. My nearest objective is getting
+a post of Java Developer in a Gentleware company. It will be pleasant for me to work in a comfortable  company's Kharkiv
+office at the centre of the city. I plan to make a career and to become a Senior Java programmer when I will be familiar
+with JAVA technologies. It can take some time, but I am sure of my success because I was a Senior design engineer at my
+previous position and I have an experience of technical projects development and implementation.
+
+
+Comgratulations, Volodymyr.
+
